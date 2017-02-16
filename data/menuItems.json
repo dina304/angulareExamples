@@ -1,0 +1,8 @@
+{
+"menu":
+		[
+			{"hash":"1","name":"first page"},
+			{"hash":"2","name":"second page"},
+			{"hash":"3","name":"third page"}
+		]
+}

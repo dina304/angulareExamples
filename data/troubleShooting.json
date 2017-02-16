@@ -1,0 +1,20 @@
+{
+"exceptions":[
+				{"error":"URL http://inglnqw074:35150/autogestion/impl/simulator/TefLogin.html not accessible",
+				 "description":"MCSS (or the respective system) is not reachable",
+				 "howToHandle":["Check environment is up and running."]
+				 },
+				 {"error":"Step page is different then expected",
+				 "description":"Test failed – reaching to incorrect page (e.g. error page instead of order summary)",
+				 "howToHandle":["Check screenshot in the report to see what page is shown",
+							   "check message before screenshot to understand what was expected, e.g. Step page is different then expected: head title 'hubo un error', body title . expected title",
+							    "Check if there are errors from server","Run the flow manually to see if reproducible"
+								]
+				},
+				{"error":"Env file c:\\MCSS_TEF\\v91_0\\cust\\amss\\bb\\testmate-impl\\testmate-scripts-impl\\target\\resources\\environments\\62.properties not found. Check selenium.properties file for ENV_NUMBER",
+				 "description":"application.properties validation",
+				 "howToHandle":["Check file name mentioned in ENV_NUMBER in application.properties exists under ~/tesmate-impl/testmate-resources-impl/src/main/resources/suites"]
+				 }
+				 
+]
+}

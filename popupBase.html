@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+<body>
+<div ng-controller="AdminListController" class="maiWidth">
+<h2 class=“adminhead”>Admin List</h2>
+<div class="col-sm-3 columns">
+<button type="" class="btn grn-btn" ng-click=“Confirm()”>Confirm Admin
+</button>
+</div>
+</div>
+<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script>
+var myApp = angular.module('myApp', []);
+myApp.controller('AdminListController', function($scope,$modal ) {
+	$scope.Confirm = function ( ) {
+	alertModalInstance = $modal.open({
+	animation: $scope.animationsEnabled,
+	templateUrl: 'confirmAlert.html',
+	scope: $scope
+	});
+	$scope.cancelDelete = function () {
+	console.log("cancel");
+	alertModalInstance.dismiss('cancel');
+	};
+	$scope.ok = function () {
+	console.log("ok");
+	alertModalInstance.close(true);
+	};
+}
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+
+
+ <link rel="stylesheet" type="text/css" href="css/table.css">
+   <head>
+      <title>AngularJS First Application</title>
+   </head>
+   
+   <body>
+     <h1>Sample Application</h1>
+	 <div ng-controller="helpController">
+	  <table>
+	  <thead>
+		  <th>#	</th>
+          <th>Error</th>
+          <th>Description</th>
+          <th>How To Handle</th>
+        </thead>
+		  <tr ng-repeat="exc in exceptions">
+			<td>{{$index}}</td>
+			<td><a ng-click="showInfo($event)">{{exc.error}}</a></td>
+			<td>{{ exc.description }}</td>
+			<td>
+				<li ng:repeat="howTo in exc.howToHandle">{{howTo}}</li>
+			<td>
+		  </tr>
+	 </table>
+	</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script>
+	 var app = angular.module('myApp', []);	
+	app.controller('helpController', 
+		function($scope,$http)
+		{
+			$http.get('troubleShooting.json')
+						.success(function(data) {
+							$scope.exceptions=data.exceptions;
+						})
+						.error(function() {
+							alert("error");
+							$scope.names=MyService.getNames();
+						});
+			$scope.showInfo = function(ev) {
+						alert("click");
+						};
+			
+		});	 		
+	 app.service('MyService', function ($http) {
+		this.getNames = function () {
+		
+		return [{"name":"dina","age":"30"},{"name":"clad","age":"29"}];
+		};
+	});
+	 </script>
+   </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html >
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/menu.css">
+<script src="js/menuApp.js"></script>
+<script src="js/menuController.js"></script>
+<script src="js/menuDirective.js"></script>
+
+
+<body ng-app="menuDemo" ng-controller="menuCtrl">
+	<div style="float:left">
+	<menu visible="leftVisible" alignment="left">
+			<menu-item ng-repeat="item in menuItems" callback-fn="getDataFunction(arg1)" hash={{item.hash}}>{{item.name}}</menu-item>
+	</menu>
+	</div>
+	<div id="mainPage" ng-show="dataVisability" style="padding-left: 280px;">
+		FirstName: {{people.firstName}}</br>
+		LastName: {{people.lastName}}</br>
+		Job: {{people.job}}</br>
+		Roll: {{people.roll}}</br>
+	</div>
+</body>
+</html>
